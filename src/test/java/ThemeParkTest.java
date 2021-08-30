@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import people.Visitor;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 public class ThemeParkTest {
@@ -26,4 +28,11 @@ public class ThemeParkTest {
         assertEquals(1, visitor.getNumVisitedAttractions());
     }
 
+    @Test
+    public void canGetAllReviews() {
+        themePark.addReview(attraction);
+        HashMap<String, Integer> reviews = themePark.allReviews();
+        int rating = reviews.get("Blue Ridge");
+        assertEquals(10, rating);
+    }
 }
