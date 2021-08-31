@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import people.Visitor;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PlaygroundTest {
     Playground playground;
@@ -34,5 +33,10 @@ public class PlaygroundTest {
 
     @Test
     public void visitorAllowedUnder15() { assertTrue(playground.isAllowedTo(visitor)); }
+
+    @Test
+    public void visitorNotAllowedOver15() {
+        visitor = new Visitor(16, 1.3, 10);
+        assertFalse(playground.isAllowedTo(visitor)); }
 
 }

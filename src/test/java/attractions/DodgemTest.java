@@ -39,6 +39,12 @@ public class DodgemTest {
     }
 
     @Test
+    public void priceForVisitorOver12() {
+        visitor = new Visitor(19, 1.0, 3);
+        assertEquals(4.5, dodgems.priceFor(visitor), 0.01);
+    }
+
+    @Test
     public void priceForVisitorUnder12() {
         assertEquals(2.25, dodgems.priceFor(visitor), 0.01);
     }

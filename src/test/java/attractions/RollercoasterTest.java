@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import people.Visitor;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class RollercoasterTest {
 
@@ -36,6 +35,18 @@ public class RollercoasterTest {
     @Test
     public void visitorIsAllowedOverAgeAndHeight() {
         assertTrue(rollerCoaster.isAllowedTo(visitor));
+    }
+
+    @Test
+    public void visitorIsNotAllowedUnderAge() {
+        visitor = new Visitor(10, 2.1, 70.0);
+        assertFalse(rollerCoaster.isAllowedTo(visitor));
+    }
+
+    @Test
+    public void visitorIsNotAllowedUnderHeight() {
+        visitor = new Visitor(20, 0.8, 70.0);
+        assertFalse(rollerCoaster.isAllowedTo(visitor));
     }
 
     @Test

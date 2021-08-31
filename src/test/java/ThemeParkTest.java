@@ -1,9 +1,11 @@
 import attractions.Attraction;
 import attractions.RollerCoaster;
+import behaviours.IReviewed;
 import org.junit.Before;
 import org.junit.Test;
 import people.Visitor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -35,4 +37,10 @@ public class ThemeParkTest {
         int rating = reviews.get("Blue Ridge");
         assertEquals(10, rating);
     }
+
+//    @Test
+//    public void canGetAllAllowed() {
+//        ArrayList<IReviewed> allAllowed = themePark.getAllAllowed(visitor);
+//        assertEquals(0, allAllowed.size());
+//    }
 }
