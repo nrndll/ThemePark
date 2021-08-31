@@ -1,6 +1,7 @@
 import attractions.Attraction;
 import attractions.Playground;
 import behaviours.IReviewed;
+import behaviours.ISecurity;
 import people.Visitor;
 import stalls.Stall;
 
@@ -34,6 +35,23 @@ public class ThemePark {
             allReviews.put(review.getName(), review.getRating());
         }
         return  allReviews;
+    }
+
+    public ArrayList<IReviewed> getAllAllowedFor(Visitor visitor) {
+        ArrayList<IReviewed> allAllowed = new ArrayList<>();
+
+        for (IReviewed review : reviewed) {
+//          instanceof checking that object is type ISecurity too
+            if (review instanceof ISecurity) {
+//              casting to ISecurity object to get access to method isAllowedTo()
+                if(((ISecurity) review).isAllowedTo(visitor)) {
+                    allAllowed.add(review);
+                }
+            } else {
+                allAllowed.add(review);
+            }
+        }
+        return allAllowed;
     }
 
 }
